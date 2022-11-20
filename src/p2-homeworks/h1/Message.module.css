@@ -1,3 +1,44 @@
-.message {
+.wrapper {
+	display: flex;
+	justify-content: space-between;
+	width: 230px;
+}
 
+.message {
+	width: 150px;
+	background: #4d5156;
+	opacity: .3;
+	color: white;
+	position: relative;
+	border-radius: 10px 10px 10px 0;
+	padding: 10px;
+}
+
+.message::before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	right: 100%;
+	display: block;
+	width: 30px;
+	height: 30px;
+	background: radial-gradient(60px at top left,
+	transparent 49%, #4d5156 51%) no-repeat right bottom;
+}
+
+message > div {
+	z-index: 999;
+}
+
+.message_and_time {
+	display: flex;
+	justify-content: space-between;
+}
+
+img {
+	margin-right: 30px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	align-self: flex-end;
 }
