@@ -3,8 +3,8 @@ import Greeting from './Greeting'
 import {UserType} from "./HW3";
 
 type GreetingContainerPropsType = {
-    users: Array<UserType> // need to fix any
-    addUserCallback: (name:string)=>void// need to fix any
+	users: Array<UserType> // need to fix any
+	addUserCallback: (name: string) => void// need to fix any
 }
 
 // более простой и понятный для новичков
@@ -13,35 +13,35 @@ type GreetingContainerPropsType = {
 // более современный и удобный для про :)
 // уровень локальной логики
 const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => { // деструктуризация пропсов
-    const [name, setName] = useState<string>('') // need to fix any
-    const [error, setError] = useState<string>('') // need to fix any
-
-    const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => { // need to fix any
-        let text = e.currentTarget.value
-        setError('')
-            setName(text)
-        // need to fix
-    }
-    const addUser = () => {
-        if(!name.trim()){
-            setError('Поле обязательно для заполнения')
-        }else{
-            addUserCallback(name)
-            setName('')
-        }
-    }
-
-    const totalUsers = users.length // need to fix
-
-    return (
-        <Greeting
-            name={name}
-            setNameCallback={setNameCallback}
-            addUser={addUser}
-            error={error}
-            totalUsers={totalUsers}
-        />
-    )
+	const [name, setName] = useState<string>('') // need to fix any
+	const [error, setError] = useState<string>('') // need to fix any
+	
+	const setNameCallback = (eValue: string) => { // need to fix any
+		let text = eValue;
+		setName(text);
+		setError('');
+		// need to fix
+	}
+	const addUser = () => {
+		if (!name.trim()) {
+			setError('Поле обязательно для заполнения')
+		} else {
+			addUserCallback(name)
+			setName('')
+		}
+	}
+	
+	const totalUsers = users.length // need to fix
+	
+	return (
+		<Greeting
+			name={name}
+			setNameCallback={setNameCallback}
+			addUser={addUser}
+			error={error}
+			totalUsers={totalUsers}
+		/>
+	)
 }
 
 export default GreetingContainer
